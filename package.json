@@ -1,0 +1,20 @@
+{
+  "name": "todo-list-api",
+  "version": "1.0.0",
+  "description": "The backend part of TodoList application, enabling users to create, retrieve, update, and delete tasks through API endpoints.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eve",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
