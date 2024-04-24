@@ -13,6 +13,7 @@ exports.getAllTasks = async (req, res) => {
 
         // Sorting: TODO: Expected using:?sort_by=+createdDate, try to encode with %2B, but not working
         if (req.query.sort_by) {
+            console.log(req.query.sort_by)
             // Check for descending sort, which uses the '-' sign.
             let sortDirection = req.query.sort_by.startsWith('-') ? '-' : '';
             // If '-' is present, remove it to get the field name.
