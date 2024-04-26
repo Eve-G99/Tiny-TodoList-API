@@ -18,7 +18,7 @@ app.use(cors());
 
 // MongoDB connection
 //Command: brew services start mongodb-community
-const mongoDB = process.env.MONGODB_URI;
+const mongoDB = process.env.MONGODB_URL;
 mongoose.connect(mongoDB, {})
     .then(() => console.log("Successful Connected to MongoDB"))
     .catch(err => console.error("Could not connect to MongoDB", err));

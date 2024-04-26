@@ -36,7 +36,7 @@ exports.getAllTasks = async (req, res) => {
 
             query = query.sort(`${sortDirection}${sortByField}`);
         }
-        
+
         const tasks = await query.exec();
         res.status(200).json(tasks);
     } catch (err) {
@@ -67,9 +67,19 @@ exports.createTask = async (req, res) => {
     if (!req.body.taskDescription || !req.body.dueDate) {
         return res.status(400).json({ message: 'Missing required task filed' });
     }
+
+    // Convert string dates to Date objects for comparison
+    const createdDate = new Date(req.body.createdDate || Date.now());
+    const dueDate = new Date(req.body.dueDate);q
+
+    if (createdDate > dueDate) {
+        return res.status(400).json({ message: 'Created date cannot be later than due date.' });
+    }
+
     const task = new Task({
         taskDescription: req.body.taskDescription,
-        dueDate: req.body.dueDate,
+        createdDate: createdDate,
+        dueDate: dueDate,
         completed: req.body.completed
     });
 
